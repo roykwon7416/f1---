@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/backend
+    ports:
+      - "8000:8000"   # 호스트 8000 → 컨테이너 8000
+    volumes:
+      - ./frontend:/app/frontend
+    restart: unless-stopped
